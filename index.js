@@ -1,11 +1,13 @@
 const element_input = document.getElementById('input');
 const element_result_h = document.getElementById('result_h');
 const element_progressBar = document.getElementById('progressBar');
+
 let upperCaseElements = [];
 let numberElements = [];
 let specialElements = [];
 let passwordLength = null;
 let passwordStrength = '';
+
 function checkPassword () {
     let password = element_input.value;
     password = password.split('');
@@ -67,16 +69,19 @@ function checkPasswordStrength () {
 
     if (passwordStrength === 'weak') {
         element_progressBar.style.width = '25%';
+        element_result_h.style.color = '#da3544';
         element_progressBar.classList.remove(element_progressBar.classList.item(1));
         element_progressBar.classList.add('bg-danger');
     }
     if (passwordStrength === 'medium') {
         element_progressBar.style.width = '50%';
+        element_result_h.style.color = '#fdbf07';
         element_progressBar.classList.remove(element_progressBar.classList.item(1));
         element_progressBar.classList.add('bg-warning');
     }
     if (passwordStrength === 'strong') {
         element_progressBar.style.width = '100%';
+        element_result_h.style.color = '#24bb76';
         element_progressBar.classList.remove(element_progressBar.classList.item(1));
         element_progressBar.classList.add('bg-success');
     }
@@ -86,9 +91,6 @@ function checkPasswordStrength () {
         element_result_h.style.color = 'rgba(47,49,52,0.78)';
     }
 
-    if (passwordLength > 0) {
-        element_result_h.style.color = 'white';
-    }
     upperCaseElements = [];
     numberElements = [];
     specialElements = [];
