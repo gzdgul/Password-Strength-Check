@@ -1,5 +1,6 @@
 const element_input = document.getElementById('input');
 const element_result_h = document.getElementById('result_h');
+const element_progressBar = document.getElementById('progressBar');
 let upperCaseElements = [];
 let numberElements = [];
 let specialElements = [];
@@ -63,6 +64,24 @@ function checkPasswordStrength () {
         passwordStrength = 'weak';
         element_result_h.innerText = 'Your password is ' + passwordStrength;
     }
+
+    if (passwordStrength === 'weak') {
+        element_progressBar.style.width = '25%';
+        element_progressBar.classList.remove(element_progressBar.classList.item(1));
+        element_progressBar.classList.add('bg-danger');
+    }
+    if (passwordStrength === 'medium') {
+        element_progressBar.style.width = '50%';
+        element_progressBar.classList.remove(element_progressBar.classList.item(1));
+        element_progressBar.classList.add('bg-warning');
+    }
+    if (passwordStrength === 'strong') {
+        element_progressBar.style.width = '100%';
+        element_progressBar.classList.remove(element_progressBar.classList.item(1));
+        element_progressBar.classList.add('bg-success');
+    }
+
+
     element_result_h.style.color = 'white';
     upperCaseElements = [];
     numberElements = [];
@@ -71,6 +90,7 @@ function checkPasswordStrength () {
     passwordStrength = '';
 
 }
+
 
 function isCharacterALetter(a) {
     return (/[a-zA-Z]/).test(a);
