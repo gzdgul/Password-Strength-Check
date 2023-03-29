@@ -29,8 +29,8 @@
                 <div class="maindiv mt-4">
                     <h2>Password Strength Check</h2>
                     <div id="input-group" class="input-group mb-3" >
-                        <input id="input" type="text" class="form-control"  placeholder="Type Here..." oninput="checkPassword()">
-                        <button class="btn btn-secondary" type="button" id="hideButton">HIDE</button>
+                        <input id="input" type="text" class="form-control"  autocomplete="off" placeholder="Type Here..." oninput="checkPassword()">
+                        <button class="btn btn-secondary" type="button" id="hideButton" onclick="hidePassword()">HIDE</button>
                     </div>
                     <h5 id="result_h" style="color: rgba(47,49,52,0.78)";>.</h5>
                 </div>

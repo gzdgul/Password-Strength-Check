@@ -80,9 +80,15 @@ function checkPasswordStrength () {
         element_progressBar.classList.remove(element_progressBar.classList.item(1));
         element_progressBar.classList.add('bg-success');
     }
+    if (passwordLength === 0) {
+        element_progressBar.style.width = '0%';
+        element_result_h.innerText = '.';
+        element_result_h.style.color = 'rgba(47,49,52,0.78)';
+    }
 
-
-    element_result_h.style.color = 'white';
+    if (passwordLength > 0) {
+        element_result_h.style.color = 'white';
+    }
     upperCaseElements = [];
     numberElements = [];
     specialElements = [];
@@ -91,7 +97,14 @@ function checkPasswordStrength () {
 
 }
 
-
+function hidePassword() {
+    if (element_input.attributes[1].value === 'text') {
+        element_input.setAttribute('type', 'password');
+    }
+    else {
+        element_input.setAttribute('type', 'text');
+    }
+}
 function isCharacterALetter(a) {
     return (/[a-zA-Z]/).test(a);
 }
